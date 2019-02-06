@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.gudenau.minecraft.glitter.mixin.client",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

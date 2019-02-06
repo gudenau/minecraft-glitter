@@ -1,0 +1,17 @@
+{
+  "id": "gud_glitter",
+  "name": "Glitter",
+  "description": "Allows you to change the color of the enchantment glint.",
+  "version": "1.0.0",
+  "side": "universal",
+  "initializers": [
+    "net.gudenau.minecraft.glitter.common.Glitter",
+    "net.gudenau.minecraft.glitter.client.GlitterClient"
+  ],
+  "requires": {
+    "fabric": "*"
+  },
+  "mixins": {
+    "client": "gud_glitter.client.json"
+  }
+}
