@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:story/enchant_item",
+  "display": {
+    "title": {
+      "text": "Beutiful Glitter",
+      "color": "dark_green",
+      "obfuscated": false
+    },
+    "description": {
+      "text": "Create an \"Enchantment Colorizer\""
+    },
+    "icon": {
+      "item": "gud_glitter:glitter"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+  },
+  "criteria": {
+    "crafted": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "gud_glitter:glitter"
+          }
+        ]
+      }
+    }
+  }
+}
