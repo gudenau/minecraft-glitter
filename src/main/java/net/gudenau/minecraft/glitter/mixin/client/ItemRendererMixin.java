@@ -32,6 +32,7 @@ public abstract class ItemRendererMixin implements ResourceReloadListener {
 
     /**
      * @author gudenau
+     * @reason Could not just hook the lambda.
      */
     @Overwrite
     public void renderItemAndGlow(ItemStack stack, BakedModel model) {
