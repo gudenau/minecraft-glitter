@@ -29,19 +29,17 @@ public class GlitterBlockEntityRenderer extends BlockEntityRenderer<GlitterBlock
 
         if(entity != null){
             GlStateManager.pushMatrix();
-            GlStateManager.translated(x + 0.5, y + 1.3, z + 0.5);
+            GlStateManager.translated(x + 0.5, y + 1, z + 0.5);
 
             double angle = (System.currentTimeMillis() / 50.0) % 360;
 
             { // Render item
                 ItemStack item = entity.getItem();
-                if(item.isEmpty()){
-                    item = entity.getResult();
-                }
 
                 if(!item.isEmpty()){
                     GlStateManager.pushMatrix();
                     GlStateManager.rotated(45 - angle * 2, 0, 1, 0);
+                    GlStateManager.scaled(0.25, 0.25, 0.25);
                     itemRenderer.renderItem(item, ModelTransformation.Type.FIXED);
                     GlStateManager.popMatrix();
                 }
@@ -51,16 +49,19 @@ public class GlitterBlockEntityRenderer extends BlockEntityRenderer<GlitterBlock
                 List<ItemStack> dyes = entity.getDyes();
                 GlStateManager.pushMatrix();
                 GlStateManager.rotated(angle, 0, 1, 0);
-                GlStateManager.scaled(0.25, 0.25, 0.25);
+                double progress = (100 - entity.getProgress()) / 100.0;
+                GlStateManager.translated(0, -0.19 * progress, 0);
+                GlStateManager.scaled(0.14, 0.14, 0.14);
 
                 int i = 0;
                 double rads = Math.toRadians(360d / dyes.size());
+                double r = 3 * progress;
                 for (ItemStack stack : dyes) {
                     GlStateManager.pushMatrix();
                     GlStateManager.translated(
-                            Math.cos(rads * i) * 2,
+                            Math.cos(rads * i) * r,
                             0,
-                            Math.sin(rads * i) * 2
+                            Math.sin(rads * i) * r
                     );
                     GlStateManager.rotated(angle, 0, 1, 0);
                     itemRenderer.renderItem(stack, ModelTransformation.Type.FIXED);

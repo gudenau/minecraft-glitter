@@ -8,6 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.VerticalEntityPosition;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sortme.ItemScatterer;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -43,13 +44,13 @@ public class GlitterBlock extends Block implements BlockEntityProvider {
             Hand hand,
             BlockHitResult blockHitResult
     ) {
-        if(world.isClient){
+        if (world.isClient) {
             return true;
         }
 
         GlitterBlockEntity entity = (GlitterBlockEntity) world.getBlockEntity(position);
 
-        if(entity != null) {
+        if (entity != null) {
             if (player.isSneaking()) {
                 entity.pop();
             } else {
@@ -61,5 +62,38 @@ public class GlitterBlock extends Block implements BlockEntityProvider {
         }
 
         return true;
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    @Deprecated
+    public void onBlockRemoved(BlockState oldState, World world, BlockPos pos, BlockState newState, boolean boolean_1) {
+        if (oldState.getBlock() != newState.getBlock()) {
+            BlockEntity rawEntity = world.getBlockEntity(pos);
+            if (rawEntity instanceof GlitterBlockEntity) {
+                GlitterBlockEntity entity = (GlitterBlockEntity) rawEntity;
+                for (ItemStack dye : entity.getDyes()) {
+                    ItemScatterer.spawn(
+                            world,
+                            pos.getX(),
+                            pos.getY(),
+                            pos.getZ(),
+                            dye
+                    );
+                }
+                if(!entity.getItem().isEmpty()){
+                    ItemScatterer.spawn(
+                            world,
+                            pos.getX(),
+                            pos.getY(),
+                            pos.getZ(),
+                            entity.getItem()
+                    );
+                }
+            }
+
+            super.onBlockRemoved(oldState, world, pos, newState, boolean_1);
+            world.removeBlockEntity(pos);
+        }
     }
 }
