@@ -1,3 +1,5 @@
 {
-  "block.gud_glitter.glitter": "Enchantment Colorizer"
+  "block.gud_glitter.glitter": "Enchantment Colorizer",
+  "advancements.gud_glitter.glitter.title": "Beautiful Glitter",
+  "advancements.gud_glitter.glitter.description": "Craft an \"Enchantment Colorizer\""
 }

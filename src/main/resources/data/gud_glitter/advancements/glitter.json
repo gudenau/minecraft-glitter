@@ -2,12 +2,12 @@
   "parent": "minecraft:story/enchant_item",
   "display": {
     "title": {
-      "text": "Beutiful Glitter",
+      "translate": "advancements.gud_glitter.glitter.title",
       "color": "dark_green",
       "obfuscated": false
     },
     "description": {
-      "text": "Create an \"Enchantment Colorizer\""
+      "translate": "advancements.gud_glitter.glitter.description"
     },
     "icon": {
       "item": "gud_glitter:glitter"
