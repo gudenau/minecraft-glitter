@@ -63,31 +63,4 @@ public abstract class ItemRendererMixin implements ResourceReloadListener {
             GlStateManager.popMatrix();
         }
     }
-
-    /*
-    @Shadow
-    private void renderModelWithTint(BakedModel bakedModel_1, int int_1){}
-
-    @ModifyArg(
-            method = "renderItemAndGlow",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/render/item/ItemRenderer;renderGlint(Lnet/minecraft/client/texture/TextureManager;Ljava/lang/Runnable;I)V"
-            ),
-            index = 1
-    )
-    private Runnable renderGlintColor(TextureManager textureManager, Runnable runnable, int scale){
-        return ()->{
-            int color = 0xFF8040CC;
-            CompoundTag tag = stack.getTag();
-            if(tag != null && tag.containsKey("gud")){
-                CompoundTag gudTag = tag.getCompound("gud");
-                if(gudTag.containsKey("glitter")){
-                    color = gudTag.getInt("glitter") | 0xFF000000;
-                }
-            }
-            this.renderModelWithTint(model, color);
-        };
-    }
-    */
 }

@@ -1,6 +1,6 @@
 package net.gudenau.minecraft.glitter.common.block.entity;
 
-import net.fabricmc.fabric.block.entity.ClientSerializable;
+import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.gudenau.minecraft.glitter.common.init.BlockEntities;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.DyeItem;
@@ -14,7 +14,7 @@ import net.minecraft.util.Tickable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GlitterBlockEntity extends BlockEntity implements Tickable, ClientSerializable {
+public class GlitterBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable{
     private List<ItemStack> dyes = new LinkedList<>();
     private ItemStack item = ItemStack.EMPTY;
     private int progress;
