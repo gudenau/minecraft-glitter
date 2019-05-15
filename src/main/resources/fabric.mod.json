@@ -1,17 +1,40 @@
+
 {
+  "schemaVersion": 1,
   "id": "gud_glitter",
+  "version": "1.0.3",
+
   "name": "Glitter",
   "description": "Allows you to change the color of the enchantment glint.",
-  "version": "1.0.0",
-  "side": "universal",
-  "initializers": [
-    "net.gudenau.minecraft.glitter.common.Glitter",
-    "net.gudenau.minecraft.glitter.client.GlitterClient"
+  "authors": [
+    "gudenau"
   ],
-  "requires": {
-    "fabric": "*"
+  "contributors": [
+    "Shnupbups"
+  ],
+  "contact": {
+    "homepage": "https://minecraft.curseforge.com/projects/glitter",
+    "sources": "https://github.com/gudenau/minecraft-glitter",
+    "issues": "https://github.com/gudenau/minecraft-glitter/issues"
   },
-  "mixins": {
-    "client": "gud_glitter.client.json"
+
+  "license": "MIT License",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.gudenau.minecraft.glitter.common.Glitter"
+    ],
+    "client": [
+      "net.gudenau.minecraft.glitter.client.GlitterClient"
+    ]
+  },
+  "mixins": [
+    "gud_glitter.mixins.json"
+  ],
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
   }
 }

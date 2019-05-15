@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.sortme.ItemScatterer;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.Tickable;
 
 import java.util.LinkedList;
