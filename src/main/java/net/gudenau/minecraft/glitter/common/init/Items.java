@@ -3,7 +3,7 @@ package net.gudenau.minecraft.glitter.common.init;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.block.BlockItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.util.registry.Registry;
 
 public class Items {
@@ -12,9 +12,9 @@ public class Items {
     private static BlockItem register(Block block){
         BlockItem blockItem = new BlockItem(
                 block,
-                new Item.Settings().itemGroup(ItemGroup.DECORATIONS)
+                new Item.Settings().group(ItemGroup.DECORATIONS)
         );
-        blockItem.registerBlockItemMap(Item.BLOCK_ITEM_MAP, blockItem);
+        blockItem.appendBlocks(Item.BLOCK_ITEMS, blockItem);
         return Registry.register(
                 Registry.ITEM,
                 Registry.BLOCK.getId(block),

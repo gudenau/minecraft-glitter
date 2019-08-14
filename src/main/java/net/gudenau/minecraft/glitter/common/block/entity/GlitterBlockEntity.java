@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.sortme.ItemScatterer;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.Tickable;
 
 import java.util.LinkedList;
@@ -81,13 +81,13 @@ public class GlitterBlockEntity extends BlockEntity implements Tickable, BlockEn
         Item item = stack.getItem();
         if (stack.hasEnchantmentGlint() && !dyes.isEmpty()) {
             this.item = stack.copy();
-            stack.setAmount(0);
+            stack.setCount(0);
             markDirty();
         } else if (item instanceof DyeItem) {
             ItemStack ourStack = stack.copy();
-            stack.subtractAmount(1);
+            stack.decrement(1);
 
-            ourStack.setAmount(1);
+            ourStack.setCount(1);
             dyes.add(ourStack);
             markDirty();
         }
