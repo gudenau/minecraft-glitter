@@ -12,9 +12,9 @@ public class Items {
     private static BlockItem register(Block block){
         BlockItem blockItem = new BlockItem(
                 block,
-                new Item.Settings().itemGroup(ItemGroup.DECORATIONS)
+                new Item.Settings().group(ItemGroup.DECORATIONS)
         );
-        blockItem.registerBlockItemMap(Item.BLOCK_ITEM_MAP, blockItem);
+        blockItem.appendBlocks(Item.BLOCK_ITEMS, blockItem);
         return Registry.register(
                 Registry.ITEM,
                 Registry.BLOCK.getId(block),
