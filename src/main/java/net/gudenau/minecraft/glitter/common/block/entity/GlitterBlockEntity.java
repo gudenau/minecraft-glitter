@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.gudenau.minecraft.glitter.common.init.BlockEntities;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.DyeItem;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -79,7 +80,7 @@ public class GlitterBlockEntity extends BlockEntity implements Tickable, BlockEn
         }
 
         Item item = stack.getItem();
-        if (stack.hasEnchantmentGlint() && !dyes.isEmpty()) {
+        if ((stack.hasEnchantments() || item instanceof EnchantedBookItem) && !dyes.isEmpty()) {
             this.item = stack.copy();
             stack.setCount(0);
             markDirty();

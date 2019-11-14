@@ -1,8 +1,7 @@
-
 {
   "schemaVersion": 1,
   "id": "gud_glitter",
-  "version": "1.0.3",
+  "version": "1.0.4",
 
   "name": "Glitter",
   "description": "Allows you to change the color of the enchantment glint.",
@@ -34,7 +33,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.4.0",
+    "fabricloader": ">=0.6.4",
     "fabric": "*"
   }
 }
